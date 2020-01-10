@@ -3,3 +3,5 @@
 2 ptk dokumentacja (?)
 1 ptk generator
 1 ptk indeksy - uprawnienia(nie da siê na serwerze nadawaæ uprawnieñ, trzeba tylko zaproponowaæ)
+
+
