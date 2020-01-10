@@ -1,18 +1,22 @@
 USE [u_jastrzab]
 GO
-for i as int
+
+declare @i int = 0
+while @i<20
+begin
 INSERT INTO [dbo].[People]
-           ([PersonID]
-           ,[Firstname]
+           ([Firstname]
            ,[Lastname]
            ,[Student]
            ,[CompanyID])
      VALUES
-           (<PersonID, int,>
-           ,<Firstname, nvarchar(50),>
-           ,<Lastname, nvarchar(50),>
-           ,<Student, bit,>
-           ,<CompanyID, int,>)
+           ('name'
+           ,'lastname'
+           ,1
+		   ,null
+           )
+SET @i = @i + 1;
+end
 GO
 
 
