@@ -1,0 +1,5 @@
+konferencja - dni
+workshop - godziny
+skasowaæ tabelê daty
+skasowaæ payment details
+dni konferencji liczymy osobno
