@@ -49,7 +49,6 @@ BEGIN
 		RETURN 0;
 	END
 
-	DECLARE @i INT = 0;
 	DECLARE @count INT;
 	SELECT @count = COUNT(*)
 		FROM Workshops W
@@ -57,42 +56,9 @@ BEGIN
 		ON W.WorkshopID = WR.WorkshopID
 		INNER JOIN Participants AS P
 		ON P.ParticipantID = @ParticipantID AND WR.ParticipantID = P.ParticipantID
+		WHERE W.StartDate <= @WorkshopEndDate AND W.EndDate >= @WorkshopStartDate
 
-	WHILE @i <= @count
-	BEGIN
-		DECLARE @a date;
-		DECLARE @b date;
-		SELECT @a = W.StartDate, @b = W.EndDate
-		FROM Workshops W
-		INNER JOIN [Workshop Reservations] AS WR
-		ON W.WorkshopID = WR.WorkshopID
-		INNER JOIN Participants AS P
-		ON P.ParticipantID = @ParticipantID AND WR.ParticipantID = P.ParticipantID
-		ORDER BY 1
-		OFFSET @i ROWS   
-		FETCH NEXT 1 ROWS ONLY  
-
-		IF MAX((@WorkshopStartDate, @a)) < MIN((@WorkshopEndDate, @b)
-			RETURN 0;
-
-		SET @i = @i + 1;
-
-	END
-	FOR workshop AS
-		SELECT StartDate, EndDate
-		FROM Workshops W
-		INNER JOIN [Workshop Reservations] AS WR
-		ON W.WorkshopID = WR.WorkshopID
-		INNER JOIN Participants AS P
-		ON P.ParticipantID = @ParticipantID AND WR.ParticipantID = P.ParticipantID
-	BEGIN
-		IF MAX(@WorkshopStartDate, workshop.StartDate) < MIN(@WorkshopEndDate, workshop.EndDate)
-			RETURN 0;
-	END
-
-
-	
-
+	RETURN iif(@count > 0, 0, 1);
 END
 GO
 
