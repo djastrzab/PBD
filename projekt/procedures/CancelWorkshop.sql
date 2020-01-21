@@ -1,0 +1,17 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE CancelWorkshop
+	@WorkshopID int
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+	UPDATE Workshops
+	SET Cancelled = 1
+	WHERE WorkshopID = @WorkshopID
+END
+GO
