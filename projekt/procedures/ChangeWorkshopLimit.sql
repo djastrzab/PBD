@@ -1,0 +1,17 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE ChangeWorkshopLimit
+	@WorkshopID INT,
+	@NewLimit INT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+
+	UPDATE Workshops SET Limit = @NewLimit
+	WHERE WorkshopID = @WorkshopID
+END
