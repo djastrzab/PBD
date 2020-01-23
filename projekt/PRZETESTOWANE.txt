@@ -1,0 +1,11 @@
+- wszytkie Addxx
+- Cancel/ uncancel
+- make conf reservation
+- make workshop reservation (działa zbyt często bo trigery wyłączone)
+- change konf limit / workshop limit
+- Change address
+- Wszystkie widoki (jako normalne widoki, bez parametru)
+
+do przetestowania:
+- Wszystkie widoki zapisane jako procedury z parametrem!
+- ewentualnie trigery po ich odpaleniu (ale raczej szkoda czasu xd)
